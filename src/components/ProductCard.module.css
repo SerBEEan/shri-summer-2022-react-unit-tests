@@ -1,0 +1,126 @@
+.card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    height: max-content;
+}
+
+.imgContainer {
+    position: relative;
+}
+
+.img, .emptyImg {
+    height: 400px;
+    width: 100%;
+}
+
+.emptyImg {
+    background-color: #F5F5F5;
+}
+
+.imgHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: min-content;
+    font-size: 11px;
+}
+
+.imgHeader > svg {
+    cursor: pointer;
+}
+
+.imgLabels {
+    display: flex;
+    gap: 4px;
+}
+
+.imgLabels > span {
+    border-radius: 4px;
+    padding: 3px 5px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.imgLabels > span[data-hit] {
+    background-color: #F53D3D;
+}
+
+.imgLabels > span[data-save] {
+    background-color: #11C66C;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.title {
+    color: #434851;
+    line-height: 24px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    display: flex;
+    gap: 8px;
+
+    /* margin: 12px 0; */
+}
+
+.price > span + span  {
+    text-decoration: line-through;
+}
+
+.price > span:first-child:not(:last-child)  {
+    color: #F20D0D;
+}
+
+.params {
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    gap: 24px;
+    color: #72757C;
+}
+
+.params > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.buttons > button {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    line-height: 24px;
+}
+
+.buttons > button:first-child {
+    background-color: #70DDA7;
+}
+
+.buttons > button:disabled {
+    cursor: auto;
+}
+
+.buttons > button:disabled:first-child {
+    background-color: #CFF4E2;
+}
