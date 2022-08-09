@@ -34,23 +34,27 @@ export const ProductCard = (props) => {
         <div className={styles.card} data-testid="product-card">
             <div className={styles.imgContainer}>
                 {imageUrl ? (
-                    <img className={styles.img} src={imageUrl} alt={title} />
+                    <img className={styles.img} data-testid="img" src={imageUrl} alt={title} />
                 ) : (
-                    <div className={styles.emptyImg}></div>
+                    <div className={styles.emptyImg} data-testid="empty-img"></div>
                 )}
                 <div className={styles.imgHeader}>
                     <div className={styles.imgLabels}>
-                        {isHit && <span data-hit="true">хит</span>}
-                        {isSale && <span data-save="true">скидка</span>}
+                        {isHit && <span data-hit="true" data-testid="label-hit">хит</span>}
+                        {isSale && <span data-save="true" data-testid="label-sale">скидка</span>}
                     </div>
-                    {isFavoriteActive ? <FillHeartIcon onClick={changeIsFavoriteActive} /> : <EmptyFavoriteIcon onClick={changeIsFavoriteActive} />}                    
+                    {isFavoriteActive ? (
+                        <FillHeartIcon onClick={changeIsFavoriteActive} data-testid="favorite-active" />
+                    ) : (
+                        <EmptyFavoriteIcon onClick={changeIsFavoriteActive} data-testid="favorite-not-active" />
+                    )}
                 </div>
             </div>
             <div className={styles.info}>
                 <div className={styles.title}>{title}</div>
                 <div className={styles.price}>
-                    {Boolean(currentPrice) && <span>{`${divideNumber(currentPrice)} `}&#8381;</span>}
-                    {Boolean(oldPrice) && <span>{`${divideNumber(oldPrice)} `}&#8381;</span>}
+                    {Boolean(currentPrice) && <span data-testid="current-price">{`${divideNumber(currentPrice)} `}&#8381;</span>}
+                    {Boolean(oldPrice) && <span data-testid="old-price">{`${divideNumber(oldPrice)} `}&#8381;</span>}
                 </div>
                 {!hasNotParams && (
                     <div className={styles.params}>
@@ -63,21 +67,21 @@ export const ProductCard = (props) => {
                         {Boolean(bouquetHeight) && (
                             <div>
                                 <BouquetHeightIcon />
-                                <span>{bouquetHeight} см</span>
+                                <span data-testid="param-height">{bouquetHeight} см</span>
                             </div>
                         )}
                         {Boolean(bouquetWidth) && (
                             <div>
                                 <BouquetWidthIcon />
-                                <span>{bouquetWidth} см</span>
+                                <span data-testid="param-width">{bouquetWidth} см</span>
                             </div>
                         )}
                     </div>
                 )}
             </div>
             <div className={styles.buttons}>
-                <button disabled={!Boolean(flowersCount)}>В корзину</button>
-                <button disabled={!Boolean(flowersCount)}>Купить сразу</button>
+                <button disabled={!Boolean(flowersCount)} data-testid="button-basket">В корзину</button>
+                <button disabled={!Boolean(flowersCount)} data-testid="button-buy">Купить сразу</button>
             </div>
         </div>
     );
